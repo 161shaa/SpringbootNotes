@@ -149,3 +149,36 @@ user.service = new EmailService();
 - **Field Injection:** Generally avoid in production applications.
 
 **Key Takeaway:** All three techniques provide dependencies externally. The difference is how and when the dependency is injected.
+
+
+
+##  Quick Comparison – DI Syntax
+
+### 1. Constructor Injection
+Dependency is passed through the constructor.
+
+```java
+UserService user = new UserService(notify);
+```
+
+### 2. Setter Injection
+Object is created first, then dependency is injected through a setter method.
+
+```java
+UserService user = new UserService();
+user.setNotificationService(notify);
+```
+
+### 3. Field Injection (Direct Assignment)
+Dependency is assigned directly to the instance variable.
+
+```java
+UserService user = new UserService();
+user.notification = notify;
+```
+
+**Remember:**
+
+- Constructor → Pass through constructor.
+- Setter → Pass through setter method.
+- Field → Assign directly to field.
